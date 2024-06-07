@@ -35,7 +35,8 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  const { centerId, centerAvatar, token, setToken } = useContext(AuthCenter);
+  const { centerId, setCenterId, centerAvatar, token, setToken } =
+    useContext(AuthCenter);
   const { playerId, setPlayerId, playerAvatar, tokenPlayer, setTokenPlayer } =
     useContext(AuthPlayer);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -77,13 +78,8 @@ export default function Navbar() {
   const confirmDelete = () => {
     if (playerId && tokenPlayer) {
       deleteAccountPlayer();
-    } else {
-      console.log("non posso cancellare l'account");
-    }
-    if (centerId && token) {
+    } else if (centerId && token) {
       deleteAccountCenter();
-    } else {
-      console.log("non posso cancellare l'account");
     }
   };
 
@@ -100,7 +96,10 @@ export default function Navbar() {
       });
 
       if (response.ok) {
-        console.error("Account deleted");
+        console.log("Account deleted");
+        setTokenPlayer("");
+        setPlayerId("");
+        navigate("/");
       } else {
         console.error("Errore durante la richiesta");
       }
@@ -120,9 +119,9 @@ export default function Navbar() {
       });
 
       if (response.ok) {
-        console.error("Account deleted");
-        setTokenPlayer("");
-        setPlayerId("");
+        console.log("Account deleted");
+        setToken("");
+        setCenterId("");
         navigate("/");
       } else {
         console.error("Errore durante la richiesta");

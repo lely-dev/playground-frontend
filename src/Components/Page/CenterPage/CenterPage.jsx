@@ -34,8 +34,9 @@ export default function CenterPage() {
 
   //CONTROLLO CHE L UTENTE SIA AUTENTICATO E CORRISPONDA AL CENTER ID
   const isAuthenticatedCenter = () => {
+    // console.log(id);
     // console.log(centerId);
-    // console.log(selectedCenter);
+    // console.log(token);
     return !!token && centerId === id;
   };
 

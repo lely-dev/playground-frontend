@@ -12,6 +12,7 @@ import {
   TEInput,
 } from "tw-elements-react";
 import { AuthCenter } from "../../Context/AuthCenterProvider";
+import { useParams } from "react-router-dom";
 
 export default function FieldsCenterCard({
   name,
@@ -22,6 +23,7 @@ export default function FieldsCenterCard({
   data,
 }) {
   const navigate = useNavigate();
+  const { id } = useParams();
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [editName, setEditName] = useState(name);
@@ -29,12 +31,14 @@ export default function FieldsCenterCard({
   const [editDescription, setEditDescription] = useState(description);
   const [editImage, setEditImage] = useState(image);
   const { centerId, token } = useContext(AuthCenter);
+  console.log(id);
 
   //CONTROLLO CHE L UTENTE SIA AUTENTICATO E CORRISPONDA AL CENTER ID
   const isAuthenticatedCenter = () => {
-    // console.log(centerId);
-    // console.log(selectedCenter);
-    return !!token && centerId === data.center._id;
+    console.log(centerId);
+    console.log(token);
+    console.log(id);
+    return !!token && centerId === id;
   };
 
   const goToField = () => {

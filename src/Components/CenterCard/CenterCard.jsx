@@ -64,31 +64,21 @@ export default function CenterCard({
   return (
     <>
       <div
-        className="flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 border border-dark-green md:max-w-xl md:flex-row cursor-pointer h-full capitalize"
         onClick={goToFieldPage}
+        className="flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 md:max-w-xl md:flex-row"
       >
-        <TETooltip
-          tag="a"
-          title="Book me!"
-          wrapperProps={{ href: "#" }}
-          className="text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600 pointer-events-auto cursor-pointer"
-        >
-          <img
-            className="h-48 w-full rounded-t-lg md:h-full md:w-48 md:rounded-none md:rounded-l-lg cursor-pointer"
-            src={image}
-            alt="image"
-            style={{ objectFit: "cover" }}
-          />
-        </TETooltip>
-        <div className="flex flex-col justify-between p-6 h-full">
-          <div>
-            <h5 className="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
-              {name}
-            </h5>
-            <p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-              {city}
-            </p>
-          </div>
+        <img
+          className="h-96 w-full rounded-t-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+          src={image}
+          alt="photo"
+        />
+        <div className="flex flex-col justify-start p-6">
+          <h5 className="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
+            {name}
+          </h5>
+          <p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+            {city}
+          </p>
           <p className="text-xs text-neutral-500 dark:text-neutral-300">
             {typology}
           </p>
@@ -108,25 +98,10 @@ export default function CenterCard({
                 </h5>
                 {/* <!--Close button--> */}
                 <button
-                  type="button"
-                  className="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
-                  onClick={() => setShowVerticalyCenteredModal(false)}
-                  aria-label="Close"
+                  onClick={closeModalLogin}
+                  className="mx-6 mt-3 px-6 pb-2 pt-2.5 border border-red text-red text-xs font-medium uppercase rounded hover:bg-red hover:text-white transition duration-300"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="h-6 w-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
+                  X
                 </button>
               </TEModalHeader>
               {/* <!--Modal body--> */}

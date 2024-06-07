@@ -73,25 +73,23 @@ export default function DisponibilityList({ data, bookingField }) {
                 </button>
               </TEModalHeader>
               <TEModalBody>
-                Would you like to confirm the camp reservation from
+                Would you like to confirm the field reservation from
                 {formatDate(selectedDispo.from)} to{" "}
                 {formatDate(selectedDispo.to)}?
               </TEModalBody>
               <TEModalFooter>
-                <TERipple rippleColor="light">
+                <TERipple>
                   <button
-                    type="button"
-                    className="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white"
                     onClick={confirmBook}
+                    className="mx-6 mt-3 px-6 pb-2 pt-2.5 bg-nav-green text-white text-xs font-medium uppercase rounded hover:bg-light-green hover:text-dark-green transition duration-300"
                   >
                     Book
                   </button>
                 </TERipple>
-                <TERipple rippleColor="light">
+                <TERipple>
                   <button
-                    type="button"
-                    className="inline-block rounded bg-secondary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white"
                     onClick={() => setShowModalOkayDispo(false)}
+                    className="mx-6 mt-3 px-6 pb-2 pt-2.5 border border-red text-red text-xs font-medium uppercase rounded hover:bg-red hover:text-white transition duration-300"
                   >
                     Cancel
                   </button>

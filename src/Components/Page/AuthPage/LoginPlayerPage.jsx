@@ -63,7 +63,10 @@ export default function LoginPlayerPage() {
             </div>
 
             {/* <!-- Right column container with form --> */}
-            <div className="md:w-8/12 lg:ml-6 lg:w-5/12">
+            <div className="md:w-8/12 lg:ml-6 lg:w-5/12 me-7">
+              <h3 className="text-center text-xl font-bold mb-4">
+                Player Login
+              </h3>
               <form>
                 {/* <!-- Username input --> */}
                 <TEInput
@@ -131,7 +134,9 @@ export default function LoginPlayerPage() {
                 </div>
 
                 {/* <!-- Social login buttons --> */}
-                <LoginGoogle />
+                <div className="flex justify-center">
+                  <LoginGoogle />
+                </div>
               </form>
             </div>
           </div>

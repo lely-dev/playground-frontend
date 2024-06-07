@@ -37,7 +37,7 @@ export default function FieldPage() {
 
   const getUrlFieldId = `http://localhost:3020/field/${id}`;
   const getUrlDispo = `http://localhost:3020/disponibility/${id}`;
-  const postUrlBook = `http://localhost:3020/book/${id}`;
+  const postUrlBook = `http://localhost:3020/book/`;
 
   //FETCH GET PER RECUPERARE IL FIELD TRAMITE ID
 
@@ -115,16 +115,19 @@ export default function FieldPage() {
   //POST PER LA PRENOTAZIONE
   const bookField = async (dispo) => {
     try {
+      console.log("dentro la funzione post", dispo);
       const response = await fetch(postUrlBook, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${tokenPlayer}`,
         },
         body: JSON.stringify({
           disponibilityId: dispo._id,
         }),
       });
+
+      console.log(response);
 
       if (!response.ok) {
         const errorData = await response.json();
