@@ -52,9 +52,9 @@ export default function Navbar() {
   //LOGOUT PER CENTRO O PLAYER
   const logoutUser = () => {
     navigate("/");
-    setToken("");
-    setTokenPlayer("");
-    localStorage.clear("");
+    localStorage.clear();
+    // setToken("");
+    // setTokenPlayer("");
     console.log("logout");
   };
 
