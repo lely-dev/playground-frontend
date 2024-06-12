@@ -1,8 +1,9 @@
 import React from "react";
 import FieldsCenterCard from "./FieldsCenterCard";
 
-export default function FieldCenterList({ fields }) {
+export default function FieldCenterList({ fields, getfieldCenter }) {
   // console.log(fields);
+
   return (
     <>
       <div className="grid gap-4 md grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 p-4">
@@ -15,6 +16,7 @@ export default function FieldCenterList({ fields }) {
             typology={field.typology}
             image={field.image[0]}
             data={field}
+            getfieldCenter={getfieldCenter}
           />
         ))}
       </div>

@@ -35,7 +35,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  const { centerId, setCenterId, centerAvatar, token, setToken } =
+  const { centerId, setCenterId, centerLogo, token, setToken } =
     useContext(AuthCenter);
   const { playerId, setPlayerId, playerAvatar, tokenPlayer, setTokenPlayer } =
     useContext(AuthPlayer);
@@ -47,13 +47,14 @@ export default function Navbar() {
 
   const defaultImage =
     "https://icones.pro/wp-content/uploads/2021/02/icone-utilisateur-gris.png";
-  const loggedImage = centerAvatar || playerAvatar || defaultImage;
+  const loggedImage = centerLogo || playerAvatar || defaultImage;
 
   //LOGOUT PER CENTRO O PLAYER
   const logoutUser = () => {
     navigate("/");
     setToken("");
     setTokenPlayer("");
+    localStorage.clear("");
     console.log("logout");
   };
 

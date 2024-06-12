@@ -11,7 +11,7 @@ export default function CenterCardList({ centers }) {
             key={center.name}
             _id={center._id}
             logo={center.center.logo}
-            image={center.image}
+            image={center.image[0]}
             name={center.center.name}
             city={center.center.city}
             typology={center.typology}

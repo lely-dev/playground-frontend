@@ -6,7 +6,6 @@ import {
   TEModalContent,
   TEModalHeader,
   TEModalBody,
-  TEInput,
 } from "tw-elements-react";
 import { useState } from "react";
 import { AuthPlayer } from "../../Context/AuthPlayerProvider";
@@ -28,6 +27,7 @@ export default function PlayerBookedField({
   const { tokenPlayer, playerId } = useContext(AuthPlayer);
   const { idUrlPlayer } = useParams();
   const navigate = useNavigate();
+  const [showModalAlert, setShowModalAlert] = useState(true);
 
   //CONTROLLO CHE L UTENTE SIA AUTENTICATO E CORRISPONDA AL CENTER ID
   const isAuthenticatedPlayer = () => {
@@ -53,6 +53,7 @@ export default function PlayerBookedField({
 
       if (response.ok) {
         setShowDeleteModal(false);
+        setShowModalAlert(true);
         fetchBook();
       } else {
         console.error("Failed to delete field");
@@ -143,6 +144,43 @@ export default function PlayerBookedField({
                 </button>
               </div>
             </TEModalBody>
+          </TEModalContent>
+        </TEModalDialog>
+      </TEModal>
+
+      <TEModal show={showModalAlert} setShow={setShowModalAlert}>
+        <TEModalDialog size="sm">
+          <TEModalContent>
+            <TEModalHeader>
+              {/* <!--Modal title--> */}
+              <h5 className="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200">
+                Small modal
+              </h5>
+              {/* <!--Close button--> */}
+              <button
+                type="button"
+                className="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                onClick={() => setShowModalAlert(false)}
+                aria-label="Close"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="h-6 w-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </TEModalHeader>
+            {/* <!--Modal body--> */}
+            <TEModalBody>...</TEModalBody>
           </TEModalContent>
         </TEModalDialog>
       </TEModal>

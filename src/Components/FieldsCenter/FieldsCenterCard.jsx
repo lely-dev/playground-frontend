@@ -21,6 +21,7 @@ export default function FieldsCenterCard({
   image,
   _id,
   data,
+  getfieldCenter,
 }) {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -64,6 +65,7 @@ export default function FieldsCenterCard({
 
       if (response.ok) {
         setShowDeleteModal(false);
+        getfieldCenter();
       } else {
         console.error("Failed to delete field");
       }
@@ -132,6 +134,7 @@ export default function FieldsCenterCard({
       if (response.ok) {
         setShowEditModal(false);
 
+        getfieldCenter();
         const result = await response.json();
         console.log("Success:", result);
 
@@ -164,7 +167,7 @@ export default function FieldsCenterCard({
           <p className="text-xs text-neutral-500 dark:text-neutral-300">
             {description}
           </p>
-          {isAuthenticatedCenter && (
+          {isAuthenticatedCenter() && (
             <div className="flex flex-col md:flex-row lg:flex-row md:items-center md:justify-start mt-4 space-y-4 sm:space-y-10 md:space-y-0 md:space-x-4">
               <button
                 className="px-4 py-2 text-white bg-nav-green rounded hover:bg-blue-700"

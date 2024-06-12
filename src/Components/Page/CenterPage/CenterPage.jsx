@@ -105,6 +105,14 @@ export default function CenterPage() {
     }
   };
 
+  //FUNZIONE PER CANCELLARE IL FORM
+  const handleReset = () => {
+    setName("");
+    setTypology("");
+    setDescription("");
+    setImage("");
+  };
+
   //   POST PER UN NUOVO FIELD
   const postNewField = async (e) => {
     e.preventDefault();
@@ -138,18 +146,10 @@ export default function CenterPage() {
 
       setShowModalNewField(false);
       handleReset();
-      getAllFieldsCenter();
+      getFieldCenterId();
     } catch (error) {
       console.error("Error:", error);
     }
-  };
-
-  //FUNZIONE PER CANCELLARE IL FORM
-  const handleReset = () => {
-    setName("");
-    setTypology("Categoria 1");
-    setDescription("");
-    setImage("");
   };
 
   return (
@@ -262,7 +262,9 @@ export default function CenterPage() {
         </TEModal>
       </div>
 
-      {allFields && <FieldCenterList fields={allFields} />}
+      {allFields && (
+        <FieldCenterList fields={allFields} getfieldCenter={getFieldCenterId} />
+      )}
 
       <Footer />
     </>

@@ -24,7 +24,7 @@ export default function FieldPage() {
   const [to, setTo] = useState();
   const [showModalDispo, setShowModalDispo] = useState(false);
   const { token, centerId } = useContext(AuthCenter);
-  const { tokenPlayer } = useContext(AuthPlayer);
+  const { tokenPlayer, playerId } = useContext(AuthPlayer);
   const navigate = useNavigate();
   const { id } = useParams();
   const [fieldId, setFieldId] = useState(null);
@@ -32,7 +32,10 @@ export default function FieldPage() {
   const isAuthenticatedCenter = () => {
     // console.log(id);
     // console.log(centerId);
-    return !!token && centerId === fieldId.center._id;
+    // console.log(token);
+    if (fieldId) {
+      return !!token && centerId === fieldId.center._id;
+    }
   };
 
   const getUrlFieldId = `http://localhost:3020/field/${id}`;
@@ -51,6 +54,8 @@ export default function FieldPage() {
       console.error("Errore nel recupero dei dati:", error);
     }
   };
+
+  console.log(fieldId);
 
   useEffect(() => {
     getFieldId();
@@ -148,8 +153,9 @@ export default function FieldPage() {
       <Navbar />
 
       {/* CAROSELLO + INFO CENTRO SPORTIVO */}
+
       {fieldId && (
-        <div className="flex justify-center mx-10 my-10">
+        <div className="flex justify-center align-middle mx-10 my-10">
           <div className="w-7/12 pr-4">
             <TECarousel showControls showIndicators ride="carousel">
               <div
@@ -204,7 +210,7 @@ export default function FieldPage() {
       {/* MODALE VISIBILE SOLO ALL UTENTE LOGGATO COME CENTER */}
 
       <div>
-        {isAuthenticatedCenter && (
+        {isAuthenticatedCenter() && (
           <div className="flex justify-center m-10">
             <TERipple>
               <button

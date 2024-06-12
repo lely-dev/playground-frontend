@@ -17,7 +17,7 @@ export default function HomePage() {
       // console.log("fetch get field");
       const response = await fetch(urlGetField);
       const data = await response.json();
-      // console.log(data);
+      console.log(data);
       setFields(data);
       setFilteredField(data);
       // console.log(filteredField);
@@ -68,7 +68,7 @@ export default function HomePage() {
             onCityChange={lookForCity}
           />
         </div>
-        <CenterCardList centers={filteredField} />
+        {filteredField && <CenterCardList centers={filteredField} />}
       </div>
       <Footer />
     </>

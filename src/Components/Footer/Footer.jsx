@@ -110,9 +110,9 @@ export default function Footer() {
 
       {/* <!--Copyright section--> */}
       <div className="p-4 text-center bg-black bg-opacity-20">
-        © 2023 Copyright:
+        © 2024 Copyright:
         <a className="text-whitehite" href="https://tw-elements.com/">
-          TW Elements
+          Playground
         </a>
       </div>
     </footer>

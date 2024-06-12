@@ -40,10 +40,10 @@ export default function CenterCard({
     }
   };
 
-  const closeModalLogin = () => {
-    setShowVerticalyCenteredModal(false);
-    console.log("chiudi modale");
-  };
+  // const closeModalLogin = () => {
+  //   setShowVerticalyCenteredModal(false);
+  //   console.log("chiudi modale");
+  // };
 
   const goToLoginPlayer = () => {
     navigate("/LoginPlayer");
@@ -98,7 +98,7 @@ export default function CenterCard({
                 </h5>
                 {/* <!--Close button--> */}
                 <button
-                  onClick={closeModalLogin}
+                  onClick={() => setShowVerticalyCenteredModal(false)}
                   className="mx-6 mt-3 px-6 pb-2 pt-2.5 border border-red text-red text-xs font-medium uppercase rounded hover:bg-red hover:text-white transition duration-300"
                 >
                   X
