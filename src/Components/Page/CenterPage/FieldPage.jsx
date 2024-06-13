@@ -106,6 +106,7 @@ export default function FieldPage() {
       resetModalDisponibility();
       setShowModalDispo(false);
       fetchDisponibility();
+      getFieldId();
     } catch (error) {
       console.error("Error:", error);
     }

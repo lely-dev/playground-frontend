@@ -4,12 +4,22 @@ import Footer from "../../Footer/Footer";
 import SearchBar from "../../SearchBar/SearchBar";
 import CenterCardList from "../../CenterCard/CenterCardList";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const urlGetField = "http://localhost:3020/field";
 
 export default function HomePage() {
   const [fields, setFields] = useState([]);
   const [filteredField, setFilteredField] = useState([]);
+
+  const { googleId, googleToken } = useParams();
+
+  console.log(googleToken);
+  console.log(googleId);
+
+  // Salvataggio nel localStorage
+  localStorage.setItem("googleToken", googleToken);
+  localStorage.setItem("googleId", googleId);
 
   //fetch get per i field
   const getField = async () => {

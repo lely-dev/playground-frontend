@@ -113,7 +113,7 @@ export default function PlayerRegistration() {
               <form>
                 {/* <!--Sign in section--> */}
                 <div className="flex flex-row items-center justify-center lg:justify-start">
-                  <p className="mb-0 mr-4 text-lg">Sign in with</p>
+                  <p className="mb-0 mr-4 text-lg">Register as a player</p>
                 </div>
 
                 {/* <!-- Name input --> */}

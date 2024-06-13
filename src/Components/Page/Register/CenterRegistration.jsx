@@ -109,7 +109,7 @@ export default function CenterRegistration() {
             <form>
               {/* <!--Sign in section--> */}
               <div className="flex flex-row items-center justify-center lg:justify-start">
-                <p className="mb-0 mr-4 text-lg">Sign in with</p>
+                <p className="mb-0 mr-4 text-lg">Register as a center</p>
               </div>
 
               {/* <!-- Name input --> */}

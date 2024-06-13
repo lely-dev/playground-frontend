@@ -43,6 +43,9 @@ export default function Navbar() {
 
   const navigate = useNavigate();
 
+  const googleToken = localStorage.getItem("googleToken");
+  const googleId = localStorage.getItem("googleId");
+
   // console.log(playerAvatar);
 
   const defaultImage =
@@ -69,6 +72,8 @@ export default function Navbar() {
       navigate(`/center/${centerId}`);
     } else if (playerId && tokenPlayer) {
       navigate(`/player/${playerId}`);
+    } else if (googleId && googleToken) {
+      navigate(`/player/${googleId}`);
     }
   };
 
